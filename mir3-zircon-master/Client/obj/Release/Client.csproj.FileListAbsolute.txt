@@ -1,0 +1,10 @@
+C:\Users\yangyanghub\Desktop\mir3-zircon-master\Release\Client\Zircon.exe
+C:\Users\yangyanghub\Desktop\mir3-zircon-master\Release\Client\Zircon.pdb
+C:\Users\yangyanghub\Desktop\mir3-zircon-master\mir3-zircon-master\Client\obj\Release\Client.csprojAssemblyReference.cache
+C:\Users\yangyanghub\Desktop\mir3-zircon-master\mir3-zircon-master\Client\obj\Release\Client.Properties.Resources.resources
+C:\Users\yangyanghub\Desktop\mir3-zircon-master\mir3-zircon-master\Client\obj\Release\Client.TargetForm.resources
+C:\Users\yangyanghub\Desktop\mir3-zircon-master\mir3-zircon-master\Client\obj\Release\Client.csproj.GenerateResource.cache
+C:\Users\yangyanghub\Desktop\mir3-zircon-master\mir3-zircon-master\Client\obj\Release\Client.csproj.CoreCompileInputs.cache
+C:\Users\yangyanghub\Desktop\mir3-zircon-master\mir3-zircon-master\Client\obj\Release\Client.csproj.CopyComplete
+C:\Users\yangyanghub\Desktop\mir3-zircon-master\mir3-zircon-master\Client\obj\Release\Zircon.exe
+C:\Users\yangyanghub\Desktop\mir3-zircon-master\mir3-zircon-master\Client\obj\Release\Zircon.pdb
