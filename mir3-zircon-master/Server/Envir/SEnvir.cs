@@ -1790,6 +1790,13 @@ namespace Server.Envir
 
             return null;
         }
+        
+        public static MonsterInfo GetMonsterInfo(string name)
+        {
+            return MonsterInfoList.Binding.FirstOrDefault
+            (monster => string.Compare(monster.MonsterName.Replace(" ", ""), name, 
+                            StringComparison.OrdinalIgnoreCase) == 0);
+        }
 
 
         public static MonsterInfo GetMonsterInfo(Dictionary<MonsterInfo, int> list)
@@ -2789,7 +2796,6 @@ namespace Server.Envir
                 return;
             }
 
-            //if (!account.Activated)
             if (!account.Activated && Config.RequireActivation)
             {
                 con.Enqueue(new S.Login { Result = LoginResult.AccountNotActivated });
@@ -2798,8 +2804,7 @@ namespace Server.Envir
 
             if (!admin && account.Banned)
             {
-                 if (account.ExpiryDate > Now)
-                
+                if (account.ExpiryDate > Now)
                 {
                     con.Enqueue(new S.Login { Result = LoginResult.Banned, Message = account.BanReason, Duration = account.ExpiryDate - Now });
                     return;
@@ -2957,7 +2962,6 @@ namespace Server.Envir
                     con.Enqueue(new S.NewAccount { Result = NewAccountResult.ReferralNotFound });
                     return;
                 }
-                //if (!refferal.Activated)
                 if (!refferal.Activated && Config.RequireActivation)
                 {
                     con.Enqueue(new S.NewAccount { Result = NewAccountResult.ReferralNotActivated });
@@ -2966,7 +2970,7 @@ namespace Server.Envir
             }
 
             AccountInfo account = AccountInfoList.CreateNewObject();
-            
+
             account.EMailAddress = p.EMailAddress;
             account.Password = CreateHash(p.Password);
             account.RealName = p.RealName;
@@ -3034,7 +3038,6 @@ namespace Server.Envir
                 con.Enqueue(new S.ChangePassword { Result = ChangePasswordResult.AccountNotFound });
                 return;
             }
-            // if (!account.Activated)
             if (!account.Activated && Config.RequireActivation)
             {
                 con.Enqueue(new S.ChangePassword { Result = ChangePasswordResult.AccountNotActivated });
@@ -3044,7 +3047,6 @@ namespace Server.Envir
             if (account.Banned)
             {
                 if (account.ExpiryDate > Now)
-               
                 {
                     con.Enqueue(new S.ChangePassword { Result = ChangePasswordResult.Banned, Message = account.BanReason, Duration = account.ExpiryDate - Now });
                     return;
@@ -3107,7 +3109,6 @@ namespace Server.Envir
                 return;
             }
 
-            //  if (!account.Activated)
             if (!account.Activated && Config.RequireActivation)
             {
                 con.Enqueue(new S.RequestPasswordReset { Result = RequestPasswordResetResult.AccountNotActivated });
@@ -3115,7 +3116,6 @@ namespace Server.Envir
             }
 
             if (Now < account.ResetTime)
-            
             {
                 con.Enqueue(new S.RequestPasswordReset { Result = RequestPasswordResetResult.ResetDelay, Duration = account.ResetTime - Now });
                 return;
@@ -3226,7 +3226,6 @@ namespace Server.Envir
                 return;
             }
 
-            //if (account.Activated)
             if (!account.Activated && Config.RequireActivation)
             {
                 con.Enqueue(new S.RequestActivationKey { Result = RequestActivationKeyResult.AlreadyActivated });
@@ -3234,7 +3233,6 @@ namespace Server.Envir
             }
 
             if (Now < account.ActivationTime)
-            
             {
                 con.Enqueue(new S.RequestActivationKey { Result = RequestActivationKeyResult.RequestDelay, Duration = account.ActivationTime - Now });
                 return;
