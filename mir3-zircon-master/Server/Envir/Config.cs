@@ -130,7 +130,8 @@ namespace Server.Envir
         public static int SkillRate { get; set; } = 0;
         public static int CompanionRate { get; set; } = 0;
 
-
+        //True: require activation   False: dont require activation
+        public static bool RequireActivation { get; set; } = false;
         public static void LoadVersion()
         {
             try
